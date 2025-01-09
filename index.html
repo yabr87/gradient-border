@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>cards</title>
+
+    <style type="text/css">
+      body {
+        margin: 0;
+        padding: 40px 0;
+        background-color: #191d1f;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100svh;
+        font-family: Tahoma, sans-serif;
+      }
+      .wrap {
+        position: relative;
+        max-width: 620px;
+        display: flex;
+        flex-direction: column;
+        gap: 32px;
+      }
+
+      h2 {
+        font-weight: 500;
+        font-size: 24px;
+        line-height: 123%;
+        color: white;
+        margin: 0;
+      }
+
+      p {
+        margin-top: 12px;
+        margin-bottom: 0;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 160%;
+        color: #a8b3bf;
+      }
+
+      .card {
+        border: 1px solid transparent;
+        background-image: linear-gradient(#1e2122, #1e2122),
+          linear-gradient(160deg, #23282a 0%, #393f41 50%, #23282a 100%);
+        background-origin: border-box;
+        background-clip: padding-box, border-box;
+
+        border-radius: 16px;
+        padding: 24px 32px;
+      }
+
+      .title-wrap {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 8px;
+      }
+
+      /* 2 metod */
+
+      .gradient-border {
+        position: relative;
+        border-radius: 16px;
+        z-index: 0;
+      }
+
+      .gradient-border .content {
+        padding: 24px 32px;
+      }
+
+      .gradient-border::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        border-radius: 16px;
+        padding: 1px;
+        background-image: linear-gradient(
+          160deg,
+          #23282a 0%,
+          #393f41 50%,
+          #23282a 100%
+        );
+        -webkit-mask: linear-gradient(#fff 0 0) content-box,
+          linear-gradient(#fff 0 0);
+        -webkit-mask-composite: destination-out;
+        mask-composite: exclude;
+        z-index: -1;
+      }
+
+      .gradient-border::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        border-radius: 16px;
+
+        background: rgba(124, 134, 136, 0.06);
+        backdrop-filter: blur(10px);
+        z-index: -2;
+      }
+
+      .decor {
+        position: absolute;
+        z-index: -1;
+        top: 40px;
+        left: 30%;
+        width: 300px;
+        height: 300px;
+        background-color: #ffffff29;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <div class="decor"></div>
+      <div class="card">
+        <div class="title-wrap">
+          <svg
+            width="8"
+            height="8"
+            viewBox="0 0 8 8"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <circle cx="4" cy="4" r="3.5" stroke="#12D4C0" />
+          </svg>
+          <h2>Problem V1</h2>
+        </div>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
+          varius enim in eros elementum tristique. Duis cursus, mi quis viverra
+          ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat.
+          Aenean faucibus nibh et justo cursus id rutrum lorem imperdiet. Nunc
+          ut sem vitae risus tristique posuere.
+        </p>
+      </div>
+
+      <!-- 2 metod -->
+
+      <div class="gradient-border">
+        <div class="content">
+          <div class="title-wrap">
+            <svg
+              width="8"
+              height="8"
+              viewBox="0 0 8 8"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <circle cx="4" cy="4" r="3.5" stroke="#12D4C0" />
+            </svg>
+            <h2>Problem V2 transparent+blur</h2>
+          </div>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
+            varius enim in eros elementum tristique. Duis cursus, mi quis
+            viverra ornare, eros dolor interdum nulla, ut commodo diam libero
+            vitae erat. Aenean faucibus nibh et justo cursus id rutrum lorem
+            imperdiet. Nunc ut sem vitae risus tristique posuere.
+          </p>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
