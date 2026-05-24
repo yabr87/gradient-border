@@ -22,6 +22,20 @@
 }
 ```
 
+**Скорочена версія** — `background-origin` і `background-clip` можна об'єднати в одне слово прямо в `background`:
+
+```css
+.card-1 {
+  border: 1px solid transparent;
+  background:
+    linear-gradient(#1e2122, #1e2122) padding-box,
+    linear-gradient(160deg, #23282a, #393f41, #23282a) border-box;
+  border-radius: 16px; /* необов'язково */
+}
+```
+
+Одне ключове слово після градієнта одразу задає і `origin`, і `clip` для того шару.
+
 **Як працює:** два фони — перший кліпається до `padding-box` (заповнює вміст), другий до `border-box` (заповнює бордер).
 
 **Обмеження:** не працює з `background: transparent`.
